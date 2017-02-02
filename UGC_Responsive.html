@@ -1,107 +1,108 @@
 <!DOCTYPE html> 
-  <head> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" /> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-      <style type="text/css">      
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 
-      body  {
-        -webkit-text-size-adjust:100%;
-         -ms-text-size-adjust:100%;
-         margin: 0 !important;
-         padding: 0 !important;
-      }
+<style type="text/css">      
 
-      /*BEGIN MEDIA ONLY*/
-      @media only screen and (max-width: 480px)  {
-        table {
-          width: 100% !important;
-          text-align: center !important;
-        }
+  body  {
+    -webkit-text-size-adjust:100%;
+     -ms-text-size-adjust:100%;
+     margin: 0 !important;
+     padding: 0 !important;
+  }
 
-        td img {
-          width: 100% !important;       
-          height: auto !important;
-          max-height: none !important;
-          text-align: center!important;
-        }  
+  /*BEGIN MEDIA ONLY*/
+  @media only screen and (max-width: 480px)  {
+    table {
+      width: 100% !important;
+      text-align: center !important;
+    }
 
-        .mobile_content {
-          max-width: 100% !important;
-        }
+    td img {
+      width: 100% !important;       
+      height: auto !important;
+      max-height: none !important;
+      text-align: center!important;
+    }  
 
-        .mobile_content table {
-          width: 100% !important;
-          height: auto !important;
-          max-height: none !important;
-          text-align: center !important;
-          margin: 0 auto !important;
-        }  
-        
-        td.fiftypercent img {
-          width: 100% !important;
-          height: auto !important;
-          max-height: none !important;
-          text-align: center!important;
-        }    
+    .mobile_content {
+      max-width: 100% !important;
+    }
 
-        .mobile_social {
-          width: 120px !important;
-          margin: 0 auto !important;
-          height: auto !important;
-          max-height: none !important;
-          text-align: center !important;
-        }
+    .mobile_content table {
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      text-align: center !important;
+      margin: 0 auto !important;
+    }  
+    
+    td.fiftypercent img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+      text-align: center!important;
+    }    
 
-        .mobile_social td {
-          padding: 0 !important;
-          margin: 0 !important;
-          max-width: 30px !important;
-          text-align: center !important;
-        }
+    .mobile_social {
+      width: 120px !important;
+      margin: 0 auto !important;
+      height: auto !important;
+      max-height: none !important;
+      text-align: center !important;
+    }
 
-        .mobile_social img {
-          max-width: 30px !important;
-          height: auto !important;
-          max-height: none !important;
-        }   
+    .mobile_social td {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 30px !important;
+      text-align: center !important;
+    }
 
-        .min_width {
-          min-width: 2px !important;
-          /*max-height: 52px !important;*/
-        }
+    .mobile_social img {
+      max-width: 30px !important;
+      height: auto !important;
+      max-height: none !important;
+    }   
 
-        .min_width img {
-          min-width: 100% !important;
-        }
+    .min_width {
+      min-width: 2px !important;
+      /*max-height: 52px !important;*/
+    }
 
-      } /*END MEDIA ONLY*/
-   
-    </style>  
-  </head> 
-  <!-- DETERMINES AM/PM TYPE AND DATE FOR UTM VALUES, ETC -->
-  %%[
-  IF FORMAT(Now(), "tt") == "AM" THEN
-  SET @Email_Type = "am"
-  ELSE
-  SET @Email_Type = "pm"
-  ENDIF
+    .min_width img {
+      min-width: 100% !important;
+    }
 
-  SET @date_str = xtshortdate
-  ]%%
+  } /*END MEDIA ONLY*/
+</style>  
+</head> 
 
+<!-- DETERMINES AM/PM TYPE AND DATE FOR UTM VALUES, ETC -->
+<script runat=server language=ampscript>
+%%[
+IF FORMAT(Now(), "tt") == "AM" THEN
+SET @Email_Type = "am"
+ELSE
+SET @Email_Type = "pm"
+ENDIF
 
+SET @date_str = xtshortdate
+]%%
 
+%%[
+SET @URL_Unsubscribe = Concat('https://www.onekingslane.com/my_account/email-preferences?id=',customer_id,'&token=',MD5(emailaddr),'&utm_source=UGC&utm_medium=Email&utm_campaign=%%jobid%%&utm_content=',@date_str,'.%%_subscriberkey%%.',@Email_Type,'&utm_term=Footer.EmailPreferences')
+]%%
+</script>
 
-  %%[
-  SET @URL_Unsubscribe = Concat('https://www.onekingslane.com/my_account/email-preferences?id=',customer_id,'&token=',MD5(emailaddr),'&utm_source=UGC&utm_medium=Email&utm_campaign=%%jobid%%&utm_content=',@date_str,'.%%_subscriberkey%%.',@Email_Type,'&utm_term=Footer.EmailPreferences')
-  ]%%
-
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BEGIN EMAIL CONTENT -->
 
 <body style="margin: 0px; padding:0px; -webkit-text-size-adjust:none;" yahoo="fix"> 
   <table width="655"  cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;
   " class="mobile_content">
     <!-- START HEADER -->
-    <table width="653"  cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
+    <table width="650"  cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
         <!-- BEGIN LOGO -->
         <tr> 
           <td colspan="5" width="100%" style="text-align:center;"> 
@@ -203,7 +204,7 @@
     <!-- -->
 
     <!-- BEGIN EMAIL BODY -->
-    <table width="653" cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
+    <table width="650" cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
 
 
       <!-- BEGIN HEADER IMAGE -->      
@@ -278,10 +279,11 @@
         </td>
       </tr>
       <!-- END PRODUCT IMAGE 5 -->      
+    </table>
+    <!-- END BODY CONTENT -->
 
-
-    <!-- footer -->
-    <table width="653"  cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
+    <!-- BEGIN EMAIL FOOTER -->
+    <table width="650"  cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;" class="mobile_content">
       <tr> 
         <td align="center"> 
           <table cellpadding="0" cellspacing="0" border="0" align="center"> 
